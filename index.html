@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FX-Pro | Experience More Than Trading</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body.dark-mode {
+      --bg-color: #f9f9f9;
+      --text-color: #111;
+      --card-color: #fff;
+    }
+
+    :root {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --card-color: #1e1e1e;
+    }
+
+    .site-footer {
+  width: 100%;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: transparent; /* uses existing page bg */
+  color: #999;
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 220px;
+      height: 100%;
+      background-color: #111;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar h4 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background: #007bff;
+    }
+
+    .sidebar-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      font-size: 24px;
+      color: #007bff;
+      background: none;
+      border: none;
+      z-index: 1000;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: #007bff;
+      background: none;
+      border: none;
+      z-index: 1000;
+    }
+
+    .sidebar.closed {
+      transform: translateX(-100%);
+    }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 30px;
+      transition: margin-left 0.3s ease-in-out;
+    }
+
+    .sidebar.closed ~ .main-content {
+      margin-left: 0;
+    }
+    #google_translate_element {
+        margin-top: 50px;
+    }
+    .carousel-container {
+  max-width: 100%;
+  height: 30%;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  animation: slideFade 16s infinite;
+}
+
+.carousel-track img {
+  width: 50%;
+  height: auto;
+  flex: 0 0 100%;
+  object-fit: contain;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Fade and slide animation */
+@keyframes slideFade {
+  0%, 20% {
+    transform: translateX(0%);
+  }
+  25%, 45% {
+    transform: translateX(-100%);
+  }
+  50%, 70% {
+    transform: translateX(-200%);
+  }
+  75%, 95% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Mobile responsive heading */
+#executive-partners h2 {
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  .carousel-track img {
+    height: auto;
+  }
+}
+
+    .hero {
+      height: 60%;
+      background-image: url(cover1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+      color: white;
+      padding: 95px 25px;
+      text-align: left;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .package-box {
+      background: var(--card-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .scroll-box {
+      height: 150px;
+      overflow: hidden;
+      background: var(--card-color);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .scroll-up {
+      animation: scroll-up 10s linear infinite;
+    }
+
+    .scroll-down {
+      animation: scroll-down 10s linear infinite;
+    }
+
+    @keyframes scroll-up {
+      0% {transform: translateY(100%);}
+      100% {transform: translateY(-100%);}
+    }
+
+    @keyframes scroll-down {
+      0% {transform: translateY(-100%);}
+      100% {transform: translateY(100%);}
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 50%;
+        height: auto;
+        position: fixed;
+        z-index: 999;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Toggle -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" id="sidebar">
+    <h4>FX-Pro</h4>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="#services"><i class="fas fa-cogs"></i> Our Services</a>
+    <a href="#howitworks  "><i class="fas fa-lightbulb"></i> How it Works</a>
+    <a href="#"><i class="fas fa-graduation-cap"></i> Academy</a>
+    <a href="#"><i class="fas fa-file-alt"></i> Terms & Conditions</a>
+    <a href="#"><i class="fas fa-question-circle"></i> FAQs</a>
+    <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+    <a href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <a href="#"><i class="fas fa-user-plus"></i> Join Us</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <div id="google_translate_element"></div>
+    <div class="hero">
+      <h1>EXPERIENCE MORE THAN TRADING</h1>
+      <p>1000+ Forex pairs & CFDs on Shares, Indices, Energies, Metals & ETFs</p>
+      <a style="background-color: white;width:40%;" class="nav-link btn btn-primary text-black px-3 ms-2" href="#"><i class="fas fa-user-plus"></i> Join Us</a>
+      <a style="font-style: italic; color:gold; font-size:larger;font-weight:bolder" class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <!-- Crypto Live Price Ticker with Clickable Coins -->
+<div id="crypto-ticker" style="background: #1111110a; overflow: hidden; white-space: nowrap; color: gold; padding: 10px 0;">
+  <div id="ticker-content" style="display: inline-block; animation: scroll-left 100s linear infinite; font-size: 16px; padding-left: 100%;">
+    Loading live prices...
+  </div><br><br><br>
+
+  <!-- Notification Message Box -->
+<div id="investment-message" style="
+display: none;
+position: fixed;
+top: 55%;
+left: 55%;
+transform: translate(-50%, -50%);
+background: rgba(255, 255, 255, 0.733);
+padding: 18px 20px;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0,0,0,0.3);
+font-family: sans-serif;
+font-size: 16px;
+z-index: 9999;
+opacity: 0;
+transition: opacity 1s ease;
+text-align: center;
+color: black
+">
+<span style="font-size: 20px; color: gold; margin-right: 10px;">
+  🔔
+</span>
+<span id="message-text"></span>
+</div>
+
+<!-- Notification Sound -->
+<audio id="notif-sound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
+
+</div>
+<script>
+  const messages = [
+    "Someone from Italy just invested <span style='color:green;'>$2,000</span>",
+    "Someone from Germany just withdrew <span style='color:green;'>$500</span>",
+    "Someone from Australia just invested <span style='color:green;'>$600</span>",
+    "Someone from United Kingdom just withdrew <span style='color:green;'>$1,500</span>",
+    "Someone from Cuba just invested <span style='color:green;'>$100</span>",
+    "Someone from United States just withdrew <span style='color:green;'>$500</span>",
+    "Someone from Nigeria just invested <span style='color:green;'>$5,000</span>",
+    "Someone from Canada just withdrew <span style='color:green;'>$900</span>",
+    "Someone from France just invested <span style='color:green;'>$1,200</span>"
+  ];
+
+  let index = 0;
+  const messageBox = document.getElementById("investment-message");
+  const messageText = document.getElementById("message-text");
+  const sound = document.getElementById("notif-sound");
+
+  function showMessage() {
+    messageText.innerHTML = messages[index];
+    messageBox.style.display = 'block';
+
+    // Fade in
+    setTimeout(() => {
+      messageBox.style.opacity = 1;
+      sound.play();
+    }, 100);
+
+    // Fade out after 5 seconds
+    setTimeout(() => {
+      messageBox.style.opacity = 0;
+      setTimeout(() => {
+        messageBox.style.display = 'none';
+        index = (index + 1) % messages.length;
+        showMessage();
+      }, 1000); // Wait for fade-out before next
+    }, 5000);
+  }
+
+  // Start showing messages
+  window.onload = showMessage;
+</script>
+
+<!-- Ticker Animation Styles -->
+<style>
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  #crypto-ticker img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  #ticker-content a {
+    color: gold;
+    text-decoration: none;
+    margin-right: 40px;
+    transition: color 0.3s ease;
+  }
+
+  #ticker-content a:hover {
+    color: #ffd700;
+  }
+
+  @media (max-width: 600px) {
+    #ticker-content {
+      font-size: 14px;
+    }
+  }
+</style>
+
+
+
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4 py-2">
+      <a class="navbar-brand fw-bold" href="#">FX-Pro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary text-black px-3 ms-2" href="#"><i class="fas fa-user-plus"></i> Join Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav><br><br>
+    
+    <!-- Executive Partners Carousel -->
+<section id="executive-partners" style="padding: 40px 20px;">
+  <h2 style="text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 30px;">Executive Partners</h2>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      
+      <img src="ex2.jpg" alt="Partner 2">
+      <img src="ex3.jpg" alt="Partner 3">
+      <img src="ex4.jpg" alt="Partner 4">
+    </div>
+  </div>
+</section>
+          
+
+
+    <section id="about">
+        <h4 style="font-family: Georgia, Times, 'Times New Roman', serif; text-align:left;">ABOUT US</h4>
+        <h3 style="text-align:left">What is FX-Pro?</h3>
+        <p>FX-Pro is a fully certified and licensed company. Established in 2015, as a fully functional and trusted currency trading/investment company, verified by a lot of users.
+             Our options are made to meet the needs and requirements of all traders.</p>
+             <a style="background-color: gold;width:40%;" class="nav-link btn btn-primary text-white px-3 ms-2" href="#"><i class="fas fa-user-plus"></i> Join Us</a>
+
+    </section><br><br>
+
+       <!-- Responsive Image + Text Section -->
+<section style="padding: 40px 20px; background-color: #111; color: #fff;border-radius:2%;">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
+    
+    <!-- Image -->
+    <div style="flex: 1 1 300px; text-align: left;">
+      <img src="background2.jpg" alt="About Unity FX" style="max-width: 100%; height: auto; border-radius: 10px;" />
+    </div>
+
+    <!-- Text Content -->
+    <div style="flex: 1 1 300px;">
+      <h2 style="color: gold; margin-bottom: 20px;">Trusted Trading Experience</h2>
+      <p style="line-height: 1.6;">
+        FX-Pro provides a modern and intuitive trading interface. Enjoy fast execution, easy deposit & withdrawal, and a secure platform trusted by thousands.
+      </p>
+    </div>
+
+  </div>
+</section><br><br>
+
+    <section>
+        <h5 style="text-align: center;font-family: Georgia, Times, 'Times New Roman',">NEW TO FOREX?</h5>
+        <h3 style="text-align:center;">What is Forex</h3>
+        <p>The foreign exchange market is a global decentralized or over-the-counter market for the trading of currencies. This market determines foreign exchange rates for every currency. It includes all aspects of buying, 
+            selling and exchanging currencies at current or determined prices.</p><br><br>
+        <h4 style="text-align: center;font-family: Georgia, Times, 'Times New Roman',">WHAT IS<br>CRYPTOCURRENCY</h4>
+        <p>Crypto Currency is a digital currency, created and held electronically. It is an internet-based medium of exchange which uses cryptographic functions to conduct financial transactions. They are not printed, like other currencies – they are produced by people, and increasingly businesses, 
+            running computers all around the world, using software that solves mathematical problems.</p>
+    </section><br><br>
+     <!-- Responsive Image + Text Section -->
+<section style="padding: 40px 20px; background-color: #111; color: #fff;border-radius:2%;">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
+    
+    <!-- Image -->
+    <div style="flex: 1 1 300px; text-align: center;">
+      <img src="fx-pic2.png" alt="About Unity FX" style="max-width: 100%; height: auto; border-radius: 10px;" />
+    </div>
+
+  </div>
+</section><br><br>
+    <!-- Trade Top Cryptos (CFD) Section -->
+<section style="padding: 40px 20px; font-family: sans-serif;">
+  <h2 style="color: gold; margin-bottom: 30px;">Trade Top Cryptos (CFD)</h2>
+  <p style="margin-bottom: 30px;">Cryptocurrencies available on FX-Pro.</p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <!-- Crypto Template -->
+    <div class="crypto-box" style="flex: 1; min-width: 300px; max-width: 350px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+      <h3>Bitcoin (BTC)</h3>
+      <p><strong>Price:</strong> <span id="btc-price">Loading...</span></p>
+      <p><strong>Change (24h):</strong> <span id="btc-change"></span></p>
+      <p><strong>Market Cap Rank:</strong> <span id="btc-rank"></span></p>
+      <p><strong>Market Cap:</strong> <span id="btc-cap"></span></p>
+      <p><strong>24H Volume:</strong> <span id="btc-volume"></span></p>
+      <p><strong>24H High/Low:</strong> <span id="btc-hilo"></span></p>
+      <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" style="color: gold;">View Coin Price Chart</a>
+    </div>
+
+    <div class="crypto-box" style="flex: 1; min-width: 300px; max-width: 350px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+      <h3>Ethereum (ETH)</h3>
+      <p><strong>Price:</strong> <span id="eth-price">Loading...</span></p>
+      <p><strong>Change (24h):</strong> <span id="eth-change"></span></p>
+      <p><strong>Market Cap Rank:</strong> <span id="eth-rank"></span></p>
+      <p><strong>Market Cap:</strong> <span id="eth-cap"></span></p>
+      <p><strong>24H Volume:</strong> <span id="eth-volume"></span></p>
+      <p><strong>24H High/Low:</strong> <span id="eth-hilo"></span></p>
+      <a href="https://www.coingecko.com/en/coins/ethereum" target="_blank" style="color: gold;">View Coin Price Chart</a>
+    </div>
+
+    <div class="crypto-box" style="flex: 1; min-width: 300px; max-width: 350px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+      <h3>Bitcoin Cash (BCH)</h3>
+      <p><strong>Price:</strong> <span id="bch-price">Loading...</span></p>
+      <p><strong>Change (24h):</strong> <span id="bch-change"></span></p>
+      <p><strong>Market Cap Rank:</strong> <span id="bch-rank"></span></p>
+      <p><strong>Market Cap:</strong> <span id="bch-cap"></span></p>
+      <p><strong>24H Volume:</strong> <span id="bch-volume"></span></p>
+      <p><strong>24H High/Low:</strong> <span id="bch-hilo"></span></p>
+      <a href="https://www.coingecko.com/en/coins/bitcoin-cash" target="_blank" style="color: gold;">View Coin Price Chart</a>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript to Fetch Live Data -->
+<script>
+async function loadCryptoData() {
+  const coins = ['bitcoin', 'ethereum', 'bitcoin-cash'];
+  const url = https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coins.join(',')};
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    data.forEach(coin => {
+      const id = coin.id.replace('-', '');
+      document.getElementById(`${id}-price`).innerText = `$${coin.current_price.toLocaleString()}`;
+      document.getElementById(`${id}-rank`).innerText = `#${coin.market_cap_rank}`;
+      document.getElementById(`${id}-cap`).innerText = `$${coin.market_cap.toLocaleString()}`;
+      document.getElementById(`${id}-volume`).innerText = `$${coin.total_volume.toLocaleString()}`;
+      document.getElementById(`${id}-hilo`).innerText = `$${coin.low_24h.toLocaleString()} / $${coin.high_24h.toLocaleString()}`;
+
+      const change = coin.price_change_percentage_24h.toFixed(2);
+      const color = change >= 0 ? 'green' : 'red';
+      const sign = change >= 0 ? '+' : '';
+      document.getElementById(`${id}-change`).innerHTML = `<span style="color: ${color}">${sign}${change}%</span>`;
+    });
+  } catch (err) {
+    console.error('Failed to load crypto data:', err);
+  }
+}
+
+loadCryptoData();
+setInterval(loadCryptoData, 60000); // refresh every 60 seconds
+</script>
+
+    <section>
+        <h4 style="text-align: center;">WHY TRADE WITH<br>FX-Pro</h4>
+        <p>You do not need to have any previous trading experience to get started, Our experts are ready to guide you through the process. The interface is remarkably user friendly. We have worked hard to ensure processes are fast and 
+            intuitive with our in-depth training materials to speed up your learning process.</p>
+    </section><br><br>
+     <!-- Responsive Image + Text Section -->
+<section style="padding: 40px 20px; background-color: #020202; color: #fff;border-radius:2%;">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
+    
+    <!-- Image -->
+    <div style="flex: 1 1 300px; text-align: center;">
+      <img src="fx-pic.png" alt="About Unity FX" style="max-width: 100%; height: auto; border-radius: 10px;" />
+    </div>
+
+  </div>
+</section><br><br>
+    <section id="services">
+      <section class="features-section py-5  text-light">
+        <div class="container">
+          <h2 class="text-center text-warning fw-bold mb-5">Platform Features</h2>
+          <div class="row g-4">
+      
+            <!-- CUSTOMIZABLE INTERFACE -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-cogs fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Customizable Interface</h5>
+                <p>Customize the platform to make it fit better to your needs — from chart type to color theme.</p>
+              </div>
+            </div>
+      
+            <!-- EASY WITHDRAWAL -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-university fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Easy Withdrawal</h5>
+                <p>We also boast a suite of order types to help traders in making withdrawals.</p>
+              </div>
+            </div>
+      
+            <!-- SUPPORT 24/7 -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-headset fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Support 24/7</h5>
+                <p>Our friendly support team is always on hand to help answer any question you have.</p>
+              </div>
+            </div>
+      
+            <!-- AWARD-WINNING PLATFORM -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-trophy fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Award-Winning Platform</h5>
+                <p>Award-winning software recognized and praised by the most respected experts of the industry.</p>
+              </div>
+            </div>
+      
+            <!-- AFFILIATE PROGRAM -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-user-plus fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Affiliate Program</h5>
+                <p>Earn bonus points when you refer someone to FX-Pro.</p>
+              </div>
+            </div>
+      
+            <!-- SECURITY -->
+            <div class="col-md-4">
+              <div class="feature-box p-4 bg-black text-center rounded">
+                <i class="fas fa-shield-alt fa-2x mb-3 text-warning"></i>
+                <h5 class="text-warning fw-bold">Security</h5>
+                <p>Protection against DDoS attacks, full data encryption.</p>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+      
+    </section><br><br>
+    <section id="howitworks">
+        <h4 style="font-family: Georgia, Times, 'Times New Roman'; text-align:center;">HOW IT WORKS</h4><br>
+        <h3 style="font-family: 'Times New Roman', Times, serif; text-align:center;">Three easy way to start</h3><br><br><br>
+        <h5>Create account</h5>
+        <p>Register an account to build an investment portfolio.<br><br><a style="background-color: gold;width:30%; border-radius:50%;" class="nav-link btn btn-primary text-white px-3 ms-2" href="#"><i class="fas fa-user-plus"></i> Join Us</a>
+        </p><br><br><br>
+
+        <h5>Fund your account</h5>
+        <p>Deposit cryptocurrencies to fund your account.</p><br><br><br>
+          <h5>Investments</h5>
+          <p>Invest and Withdraw to an external wallet, instantly.</p>
+
+
+    </section><br><br><br>
+    <!-- Investment Packages -->
+    <div class="section-title">
+      <h2>Investment Packages</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>Real Estate (Land Ownership)</h5>
+          <ul>
+            <li>Minimum Deposit: $200</li>
+            <li>Maximum Deposit: $20,000</li>
+            <li>Daily Earnings: 1.3%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div><br><br><br>
+      </div>
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>Gold ETF</h5>
+          <ul>
+            <li>Minimum Deposit: $200</li>
+            <li>Maximum Deposit: $20,000</li>
+            <li>Daily Earnings: 1.3%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div><br><br><br>
+      </div>
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>US Treasury Bond</h5>
+          <ul>
+            <li>Minimum Deposit: $400</li>
+            <li>Maximum Deposit: $10,000</li>
+            <li>Daily Earnings: 1.6%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div><br><br><br>
+      </div>
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>Play to earn Crypto Games</h5>
+          <ul>
+            <li>Minimum Deposit: $1000</li>
+            <li>Maximum Deposit: $30,000</li>
+            <li>Daily Earnings: 2%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div><br><br><br>
+      </div>
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>NFTs</h5>
+          <ul>
+            <li>Minimum Deposit: $100</li>
+            <li>Maximum Deposit: $100,000</li>
+            <li>Daily Earnings: 2.1%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div><br><br><br>
+      </div>
+      <div class="col-md-4">
+        <div class="package-box">
+          <h5>Crypto Currency etc</h5>
+          <ul>
+            <li>Minimum Deposit: $100</li>
+            <li>Maximum Deposit: $100,000</li>
+            <li>Daily Earnings: 1.6%</li>
+            <li>Duration: 30 days</li>
+            <li>Deposit Return: Yes</li>
+          </ul>
+        </div>
+      </div>
+    </div><br><br>
+
+    <!-- Scrolling Deposits -->
+     <h2 style="text-align: center; font-family:'Courier New', Courier, monospace">RECENT DEPOSIT AND WITHDRAWAL</h2>
+    <div class="section-title"><h2 style="background-color: lightgreen;">+ Latest Deposits</h2></div>
+    <div class="scroll-box">
+      
+      <div class="scroll-up">
+        <p>$10,000 from 3a17c59... Confirmed</p>
+        <p>$5,500 from 1b2893e... Confirmed</p>
+        <p>$51,000 from 8a2b97... Pending</p>
+        <p>$2,300 from 7fa837... Confirmed</p>
+      </div>
+    </div>
+
+    <!-- Scrolling Withdrawals -->
+    <div class="section-title"><h2 style="background-color: lightcoral;">- Latest Withdrawals</h2></div>
+    <div class="scroll-box">
+      <div class="scroll-down">
+        <p>$9,000 to 2cb7289... Confirmed</p>
+        <p>$3,200 to 7fa837a... Confirmed</p>
+        <p>$7,500 to 1b288b9... Pending</p>
+        <p>$4,000 to 3a17c59... Confirmed</p>
+      </div>
+    </div><br><br>
+    <section id="#">
+      <h4 style="font-family: 'monospace'; text-align:center;">REFER & EARN</h4>
+      <h3 style="font-family: 'Times New Roman', Times, serif; text-align:center;">Affiliate Programs</h3>
+      <p>Our affiliate program allows you to gain 5% of every investor you refer using the email address on your account. 
+        This bonus is programmed to reflect instantly on your dashboard the moment such deposit is made.</p>
+    </section><br><br>
+    <section style=" background-color:rgb(0, 0, 0);">
+      <h4 style="font-family: Courier, monospace;text-align:center;color:white">Register</h4>
+      <p style="text-align: center; color:gold">Join the new era of cryptocurrency investment</p>
+    
+    <section style=" background-color:gold;">
+      <h4 style="font-family: Courier, monospace;text-align:center;color:white">Sign</h4>
+      <p style="text-align: center; color:white">Access the Cryptocurrency experience you deserve</p>
+    </section>
+    </section><br>
+    <section>
+      <p>FX-Pro is a firm dealing and investing in high growth capital market and delivering 
+        sustainable profit.</p>
+    </section>
+    <section id="menu">
+      <h4>Menu<hr></h4>
+      <ul>
+      <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#services"><i class="fas fa-cogs"></i> Our Services</a></li>
+      <li><a href="#howitworks  "><i class="fas fa-lightbulb"></i> How it Works</a></li>
+      <li><a href="#"><i class="fas fa-graduation-cap"></i> Academy</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Terms & Conditions</a></li>
+      <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+      <li><a href="#"><i class="fas fa-user-plus"></i> Join Us</a></li>
+      </ul>
+    </section><br><br>
+
+    <!-- Contact FX-Pro Section (No background, Left-aligned, Responsive) -->
+<section style="padding: 40px 20px; font-family: sans-serif;">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <h2 style="color: gold; margin-bottom: 15px;">Contact FX-Pro</h2>
+    
+    <div style="margin-bottom: 10px;">
+      <strong>Mail:</strong><br>
+      <p><a href="mailto:erumusene19@gmail.com" style="color: gold; text-decoration: underline;">support</a></p>
+    </div>
+
+    <div>
+      <strong>Address:</strong><br>
+      Woodlands Mall. 1555 Lake Woodlands Dr. Spring. TX 13
+    </div>
+  </div>
+  </section>
+  <!-- Contact Form Section -->
+<section style="padding: 40px 20px; font-family: sans-serif;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <h2 style="color: gold; margin-bottom: 20px;">Get in Touch</h2>
+
+    <form id="contactForm">
+      <div style="margin-bottom: 15px;">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="3" required style="width: 100%; padding: 10px; border: 1px solid #ccc;"></textarea>
+      </div>
+
+      <button type="submit" style="background-color: gold; border: none; padding: 10px 20px; color: black; font-weight: bold; cursor: pointer;">
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+<footer class="site-footer">
+  <p>© 2025 FX-Pro. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript for Submission and Reload -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // You can optionally do something with the form values here
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (name && email && subject && message) {
+      // Simulate processing delay (e.g., for 1 second) before reloading
+      setTimeout(() => {
+        location.reload(); // Reload the page
+      }, 1000);
+    }
+  });
+</script>
+
+  </div>
+
+  
+  <style>
+    #menu ul li a{
+      text-decoration: none;
+
+      
+    }
+    #menu{
+      
+    }
+    #menu h4{
+      color: black;
+    }
+    #menu hr{
+      width: 20%;
+      color: goldenrod;
+    }
+  </style>
+
+  <!-- JavaScript to Load Live Prices -->
+<script>
+  async function fetchCryptoPrices() {
+    try {
+      const coins = [
+        { id: 'bitcoin', name: 'Bitcoin' },
+        { id: 'ethereum', name: 'Ethereum' },
+        { id: 'litecoin', name: 'Litecoin' }
+      ];
+
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coins.map(c => c.id).join(',')}`);
+      const data = await res.json();
+
+      let tickerHTML = '';
+      data.forEach(coin => {
+        const price = coin.current_price.toLocaleString();
+        const change = coin.price_change_percentage_24h.toFixed(2);
+        const changeColor = change >= 0 ? 'green' : 'red';
+        const sign = change >= 0 ? '+' : '';
+
+        const coinLink = `https://www.coingecko.com/en/coins/${coin.id}`;
+
+        tickerHTML += `
+          <a href="${coinLink}" target="_blank" title="View ${coin.name} on CoinGecko">
+            <img src="${coin.image}" alt="${coin.name} icon"> ${coin.name}: $${price} 
+            <span style="color:${changeColor};">(${sign}${change}%)</span>
+          </a>
+        `;
+      });
+
+      document.getElementById('ticker-content').innerHTML = tickerHTML.repeat(10); // Repeat to keep scrolling
+    } catch (error) {
+      document.getElementById('ticker-content').innerText = 'Error loading live prices.';
+    }
+  }
+
+  fetchCryptoPrices();
+  setInterval(fetchCryptoPrices, 60000); // Refresh every 60 seconds
+</script>
+
+  <!-- Chaport Live Chat Code -->
+
+  <!-- Begin of Chaport Live Chat code -->
+<script type="text/javascript">
+  (function(w,d,v3){
+  w.chaportConfig = {
+  appId : '682b085d183660602a4cbcd4'
+  };
+  
+  if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
+  </script>
+  <!-- End of Chaport Live Chat code -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript for toggles -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("closed");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
